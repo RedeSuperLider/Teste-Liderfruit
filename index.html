@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compre sem sair de casa!">
+    <meta name="keywords" content="Frutas, Legumes, Verduras, Temperos, Restaurante, Almoço, Saladas, Churrasco, Comida Caseira, Família, Carne, fome, lanche, fastfood, food, salada, carnes, churrasco, bbq, lanches">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Artes/Miniatura.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Líder Fruit</title>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <div class="logo-wrapper">
+                <img src="Artes/Logo.png" alt="Logo da empresa Líder Fruit">
+            </div>
+        </div>
+        <h1 id="tituloNoCorpo" class="page-title"></h1>
+    </header>
+
+    <div id="notification-bar" class="notification-bar">
+        Por favor, preencha a Identificação da empresa.
+    </div>
+
+    <div class="container">
+        <form id="order-form">
+            <div class="input-group">
+                <label for="company-name"> Identificação da empresa:</label>
+                <input type="text" id="company-name" class="client-info-input" placeholder="Identificação da sua empresa" required>
+            </div>
+
+            <h2 class="section-title">Itens do Pedido:</h2>
+
+            <ul id="items-list">
+            </ul>
+        </form>
+    </div>
+
+    <div class="fixed-bottom-bar">
+        <h3>Total de Volumes: <span id="total-items">0</span></h3>
+        <button type="button" id="submit-order">Enviar Pedido por WhatsApp</button>
+    </div>
+
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Confirmar Pedido</h2>
+            <p>Por favor, revise seu pedido antes de enviar:</p>
+            <div id="order-summary" class="order-summary">
+            </div>
+            <div class="modal-buttons">
+                <button id="confirm-send-whatsapp" class="modal-button confirm-button">Enviar via WhatsApp</button>
+                <button id="cancel-send" class="modal-button cancel-button">Voltar e Editar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dark-mode-toggle" class="dark-mode-floating-button" role="button" aria-label="Alternar modo escuro">
+        <span class="icon-sun">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2"/>
+                <path d="M12 20v2"/>
+                <path d="M22 12h-2"/>
+                <path d="M4 12H2"/>
+                <path d="m18.36 5.64-.7.7"/>
+                <path d="m6.34 17.66-.7.7"/>
+                <path d="m20.71 13.34-.7.7"/>
+                <path d="m3.34 10.66.7.7"/>
+            </svg>
+        </span>
+        <span class="icon-moon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+        </span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

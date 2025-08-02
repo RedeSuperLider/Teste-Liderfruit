@@ -1,0 +1,744 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    color: #333333;
+    padding-bottom: 120px; /* Espaço para a barra fixa inferior */
+    overflow-x: hidden; /* Garante que não haverá rolagem horizontal no corpo */
+}
+
+/* Modo Escuro */
+body.dark-mode {
+    background-color: #121212; /* Fundo escuro */
+    color: #E0E0E0; /* Texto claro */
+}
+
+body.dark-mode .container {
+    background-color: #1E1E1E; /* Fundo mais escuro para o container */
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5); /* Sombra mais pronunciada */
+}
+
+body.dark-mode .section-title {
+    color: #66BB6A; /* Cor de destaque verde */
+    border-bottom-color: #333333;
+}
+
+body.dark-mode .input-group label {
+    color: #BBBBBB;
+}
+
+body.dark-mode .client-info-input {
+    background-color: #2D2D2D;
+    border-color: #444444;
+    color: #E0E0E0;
+}
+
+body.dark-mode .client-info-input:focus {
+    border-color: #66BB6A;
+    box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.3);
+}
+
+body.dark-mode .item {
+    background-color: #2A2A2A;
+    border-color: #3A3A3A;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .item span {
+    color: #E0E0E0;
+}
+
+body.dark-mode .item-quantity {
+    background-color: #2D2D2D;
+    border-color: #444444;
+    color: #E0E0E0;
+}
+
+body.dark-mode .fixed-bottom-bar {
+    background-color: #000000e3; /* Barra inferior ainda mais escura */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .fixed-bottom-bar #total-items {
+    color: #66BB6A; /* Cor de destaque verde */
+}
+
+body.dark-mode .modal-content {
+    background-color: #252525;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .modal-content h2 {
+    color: #66BB6A;
+}
+
+body.dark-mode .modal-content p {
+    color: #BBBBBB;
+}
+
+body.dark-mode .order-summary {
+    background-color: #333333;
+    border-color: #444444;
+}
+
+body.dark-mode .order-summary p {
+    color: #E0E0E0;
+}
+
+body.dark-mode .order-summary strong {
+    color: #66BB6A;
+}
+
+/* NOVO: Botão flutuante de modo escuro */
+.dark-mode-floating-button {
+    position: fixed;
+    bottom: 140px; /* Ajuste para ficar acima da barra inferior fixa */
+    right: 20px;
+    background-color: #4CAF50; /* Cor primária */
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1001; /* Acima da barra inferior, mas abaixo do modal */
+}
+
+.dark-mode-floating-button:hover {
+    background-color: #418F45;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode-floating-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode-floating-button svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor; /* Usa a cor do texto para o preenchimento */
+    stroke: currentColor; /* Usa a cor do texto para o contorno */
+}
+
+/* Ícones de sol e lua */
+.dark-mode-floating-button .icon-sun {
+    display: flex; /* Visível por padrão no modo claro */
+}
+
+.dark-mode-floating-button .icon-moon {
+    display: none; /* Oculto por padrão no modo claro */
+}
+
+body.dark-mode .dark-mode-floating-button {
+    background-color: #2c3e50; /* Cor para o botão no modo escuro */
+}
+
+body.dark-mode .dark-mode-floating-button:hover {
+    background-color: #34495e;
+}
+
+body.dark-mode .dark-mode-floating-button .icon-sun {
+    display: none; /* Oculta o sol no modo escuro */
+}
+
+body.dark-mode .dark-mode-floating-button .icon-moon {
+    display: flex; /* Mostra a lua no modo escuro */
+}
+
+
+/* Header Principal */
+.main-header {
+    background-image: url('Artes/Banner.png'); /* Define o banner como fundo*/
+    background-size: cover; /* Garante que o fundo cubra todo o header*/
+    background-repeat: no-repeat; /* Evita a repetição da imagem de fundo*/
+    background-position: center; /* Centraliza a imagem de fundo*/
+    padding: 50px 20px 20px 20px; /* Ajusta o padding para garantir espaço para a logo e título*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    position: relative; /* Necessário para posicionar elementos filhos relativamente a ele*/
+    min-height: 150px; /* Define uma altura mínima para o header, ajuste conforme necessário*/
+}
+
+.logo {
+    margin-bottom: 10px;
+    z-index: 10; /* Garante que a logo fique na frente do fundo*/
+}
+
+/* NOVO: Estilos para o logo-wrapper e o contorno gradiente */
+.logo-wrapper {
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
+    width: 150px; /* Mesma largura da imagem para o círculo */
+    height: 150px; /* Mesma altura da imagem para o círculo */
+    border-radius: 50%; /* Garante que o wrapper seja circular */
+    display: flex; /* Para centralizar a imagem dentro dele */
+    justify-content: center;
+    align-items: center;
+    padding: 5px; /* Este padding criará o espaço para o gradiente */
+}
+
+.logo-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Alinhe o gradiente com o wrapper */
+    left: 0; /* Alinhe o gradiente com o wrapper */
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    /* O gradiente de cores */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    /* A máscara radial para criar o efeito de contorno */
+    -webkit-mask: radial-gradient(circle at center, transparent calc(50% - 5px), black calc(50% + 1px));
+    mask: radial-gradient(circle at center, transparent calc(50% - 5px), black calc(50% + 1px));
+    z-index: -1; /* Garante que o gradiente fique atrás da imagem */
+}
+
+
+.logo img {
+    max-width: 100%; /* A imagem agora ocupa 100% do seu wrapper */
+    height: auto; /* Mantém a proporção */
+    border-radius: 50%;
+    display: block;
+    position: relative; /* Para garantir que fique acima do pseudo-elemento */
+    z-index: 1; /* Para garantir que fique acima do pseudo-elemento */
+}
+
+
+.page-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    color: #4CAF50;
+    background-color: rgba(232, 245, 233, 0.8); /* Fundo levemente transparente para o título*/
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px; /* Espaço entre a logo e o título*/
+    z-index: 2; /* Garante que o título fique na frente do fundo*/
+}
+
+/* Barra de Notificação */
+.notification-bar {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: #EF7814; /* Cor de aviso */
+    color: #333333;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra na parte superior */
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+    opacity: 0; /* Começa com opacidade 0 */
+    visibility: hidden; /* Esconde o elemento sem removê-lo do fluxo */
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Transição para opacidade e visibilidade */
+}
+
+.notification-bar.show {
+    opacity: 1; /* Torna visível */
+    visibility: visible; /* Torna o elemento visível */
+}
+
+/* Container Principal */
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    padding: 2em;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+}
+
+/* Títulos de Seção */
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #E0E0E0;
+    padding-bottom: 0.5em;
+}
+
+/* Inputs de Informação do Cliente */
+.input-group {
+    margin-bottom: 1.5em;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #555555;
+}
+
+.client-info-input {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.client-info-input:focus {
+    border-color: #66BB6A;
+    box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.3);
+    outline: none;
+}
+
+/* Contorno para campos inválidos */
+.client-info-input.invalid-field {
+    border-color: #EF7814; /* Cor do aviso */
+    box-shadow: 0 0 0 3px rgba(239, 120, 20, 0.3); /* Sombra na cor do aviso */
+}
+
+/* Animação para o contorno piscar */
+@keyframes blink-border {
+    0% {
+        border-color: #EF7814;
+        box-shadow: 0 0 0 3px rgba(239, 120, 20, 0.3);
+    }
+    50% {
+        border-color: transparent;
+        box-shadow: none;
+    }
+    100% {
+        border-color: #EF7814;
+        box-shadow: 0 0 0 3px rgba(239, 120, 20, 0.3);
+    }
+}
+
+.client-info-input.blink-invalid {
+    animation: blink-border 2s infinite; /* Aplica a animação, 1s de duração, infinita */
+}
+
+/* Lista de Itens */
+#items-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+    padding: 15px;
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+    flex-wrap: wrap; /* Permite que os itens "quebrem" para a próxima linha se não houver espaço */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+}
+
+.item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.item span {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #333333;
+    flex-grow: 1; /* Permite que o nome do item ocupe espaço disponível */
+    margin-right: 15px;
+}
+
+/* Controle de Quantidade */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaçamento entre os elementos */
+}
+
+.quantity-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Botões redondos */
+    width: 35px;
+    height: 35px;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o ícone dentro do botão */
+.quantity-btn i {
+    font-style: normal; /* Remove itálico padrão da tag <i> */
+    font-size: 1em; /* Garante que o tamanho do ícone seja o mesmo do botão */
+}
+
+
+.quantity-btn:hover {
+    background-color: #66BB6A;
+    transform: scale(1.05);
+}
+
+.quantity-btn:active {
+    transform: scale(0.95);
+}
+
+.item-quantity {
+    width: 150px; /* Largura maior para o input */
+    padding: 8px 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1em;
+    -moz-appearance: textfield;
+}
+
+/* Remover setas do input number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Barra Inferior Fixa */
+.fixed-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333333e3; /* Fundo mais escuro para a barra */
+    color: white;
+    padding: 15px 0; /* Padding original */
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.fixed-bottom-bar h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.3em;
+}
+
+.fixed-bottom-bar #total-items {
+    font-weight: bold;
+    color: #4CAF50; /* Cor de destaque para o total */
+}
+
+.fixed-bottom-bar button#submit-order {
+    background-color: #4CAF50; /* Laranja para o botão de enviar */
+    color: white;
+    border: none;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 80%;
+    max-width: 350px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.fixed-bottom-bar button#submit-order:hover {
+    background-color: #418F45; /* Um laranja mais escuro ao passar o mouse */
+    transform: translateY(-2px);
+}
+
+.fixed-bottom-bar button#submit-order:active {
+    transform: translateY(0);
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1.5em;
+    }
+
+    .main-header {
+        padding: 10px;
+    }
+
+    .page-title {
+        font-size: 1.5em;
+    }
+
+    .item {
+        flex-direction: column; /* Altera a direção do flex para coluna em telas menores */
+        align-items: flex-start; /* Alinha itens ao início */
+    }
+
+    .item span {
+        font-size: 1em;
+        width: 100%; /* Ocupa 100% da largura do item */
+        margin-right: 0; /* Remove margin-right para ocupar 100% */
+        margin-bottom: 10px; /* Adiciona margem inferior para separar do controle de quantidade */
+        text-align: center; /* Centraliza o texto do item em telas menores */
+    }
+
+    .quantity-control {
+        width: 100%; /* Ocupa a largura total disponível na linha */
+        justify-content: center; /* Centraliza os controles de quantidade */
+        margin-top: 10px; /* Espaçamento acima dos controles de quantidade */
+    }
+
+    .quantity-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2em;
+    }
+
+    .item-quantity {
+        width: 150px;
+        font-size: 1em;
+    }
+
+    .fixed-bottom-bar button#submit-order {
+        font-size: 1em;
+        padding: 0.8em 1.5em;
+    }
+
+    /* Ajuste para o botão flutuante em telas menores */
+    .dark-mode-floating-button {
+        bottom: 130px; /* Ajuste para não colidir com a barra inferior */
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .dark-mode-floating-button svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* Media query para telas maiores (desktops) - Diminuição ainda maior */
+@media (min-width: 769px) {
+    .fixed-bottom-bar {
+        padding: 5px 0; /* Reduz o padding vertical para diminuir a altura da barra */
+    }
+
+    .fixed-bottom-bar h3 {
+        margin-bottom: 5px; /* Reduz ainda mais a margem inferior do título */
+        font-size: 1.1em; /* Reduz o tamanho da fonte do título */
+    }
+
+    .fixed-bottom-bar button#submit-order {
+        padding: 0.6em 1.5em; /* Reduz o padding do botão */
+        font-size: 1em; /* Reduz o tamanho da fonte do botão */
+        max-width: 280px; /* Limita um pouco mais a largura do botão */
+    }
+}
+
+@media (max-width: 480px) { /* Adicionar um breakpoint para celulares menores */
+    .page-title {
+        font-size: 1.3em;
+        padding: 6px 10px;
+    }
+
+    .logo img {
+        max-width: 120px;
+    }
+
+    /* Ajustes para o logo-wrapper e o contorno gradiente em telas muito pequenas */
+    .logo-wrapper {
+        width: 120px;
+        height: 120px;
+        padding: 4px; /* Ajuste o padding para o contorno */
+    }
+
+    .logo-wrapper::before {
+        -webkit-mask: radial-gradient(circle at center, transparent calc(50% - 4px), black calc(50% + 1px));
+        mask: radial-gradient(circle at center, transparent calc(50% - 4px), black calc(50% + 1px));
+    }
+
+    .section-title {
+        font-size: 1.3em;
+    }
+
+    .fixed-bottom-bar h3 {
+        font-size: 1.1em;
+    }
+
+    /* Ajuste adicional para o botão flutuante em telas muito pequenas */
+    .dark-mode-floating-button {
+        bottom: 120px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .dark-mode-floating-button svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Modal de Confirmação */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fica por cima de tudo */
+    z-index: 1002; /* Maior que a barra de notificação */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% do topo e centralizado horizontalmente */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #4CAF50;
+    margin-bottom: 1em;
+    font-size: 1.8em;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 1.5em;
+}
+
+.order-summary {
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+    max-height: 300px; /* Limita a altura para itens em excesso */
+    overflow-y: auto; /* Adiciona rolagem se o conteúdo for muito grande */
+}
+
+.order-summary p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.order-summary strong {
+    color: #4CAF50;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+}
+
+.modal-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    min-width: 180px;
+}
+
+.confirm-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #418F45;
+    transform: translateY(-2px);
+}
+
+.cancel-button {
+    background-color: #ff2d2d; /* Uma cor de "cancelar" */
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Responsividade para o modal */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 5% auto;
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+
+    .modal-button {
+        padding: 10px 20px;
+        font-size: 1em;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 15px;
+    }
+    .modal-button {
+        width: 100%; /* Botões ocupam a largura total em telas muito pequenas */
+    }
+    .modal-buttons {
+        flex-direction: column; /* Botões um abaixo do outro */
+        gap: 10px;
+    }
+}
+
+/* Desativa a rolagem do corpo */
+body.no-scroll {
+    overflow: hidden;
+}
