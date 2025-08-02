@@ -24,7 +24,7 @@ async function fetchAndRenderItems() {
 
     try {
         // MUDANÇA: Use o URL completo da API fornecida pelo usuário
-        const response = await fetch('https://api-teste-git-main-lucas-projects-1dd37544.vercel.app//'); 
+        const response = await fetch('https://api-teste-git-main-lucas-projects-1dd37544.vercel.app/api/itens'); 
         if (!response.ok) {
             throw new Error(`Erro na rede: ${response.statusText}`);
         }
